@@ -26,8 +26,27 @@ public class SuperArray{
   public String toString(){
     String list = "[";
     for(int i = 0; i < size; i++){
-      list += data[size] + ",";
+      list += data[i] + ",";
     }
     return list + "]";
+  }
+  public String toStringDebug(){
+    String list = "[";
+    for(int i = 0; i data.length< ; i++){
+      list += data[i] + ",";
+    }
+    return list + "]";
+  }
+  public String get(int index){
+    if(index < 0 || index >= size()){
+      return null;
+    }
+    return data[index];
+  }
+  public String set(int index, String element){
+    if(index < 0 || index >= size()){
+      return null;
+    }
+    data[index] = element;
   }
 }
