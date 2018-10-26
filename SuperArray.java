@@ -98,10 +98,27 @@ public class SuperArray{
      if(size == data.length){
        resize();
      }
+     size++;
      for(int i = size-1; i >= index; i--){
        data[i+1] = data[i];
      }
      data[index] = element;
      return "";
+   }
+   public String remove(int index){
+     if(index < 0 || index >= size()){
+       System.out.println("error");
+       return null;
+     }
+     String element = data[index];
+     for(int i = index; i < size; i++){
+       data[i] = data[i+1];
+     }
+     String[] old = data;
+     data = new String[old.length];
+     for(int i = 0; i < size-1; i++){
+       data[i] = old[i];
+     }
+     return element;
    }
 }
