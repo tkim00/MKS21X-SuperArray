@@ -3,15 +3,25 @@ public class DriverArray{
     SuperArray d1 = new SuperArray();
 
     System.out.println(d1.isEmpty());
+    d1.clear();
+    System.out.println(d1.size());
 
     for(int i = 0; i < 10; i++){
-      d1.set(i, "" + i+1);
+      d1.add("" + i+1);
+    }
+    System.out.println(d1);
+
+    d1.clear();
+    for(int i = 0; i < 12; i++){
+      d1.add("" + i+1);
     }
     System.out.println(d1);
 
     System.out.println(d1.get(4));
     System.out.println(d1.get(10));
-    d1.set(10, "11");
+    System.out.println(d1.get(15));
+    d1.set(10, "insertion");
+    System.out.println(d1);
 
     d1.clear();
     System.out.println(d1.size());

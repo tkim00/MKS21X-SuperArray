@@ -17,10 +17,11 @@ public class SuperArray{
   }
 
   public boolean add(String element){
-    /*if(size == data.length){
-      data.resize();
-    }*/
+    if(size == data.length){
+      resize();
+    }
     data[size] = element;
+    size++;
     return true;
   }
   public String toString(){
@@ -50,7 +51,13 @@ public class SuperArray{
       return null;
     }
     data[index] = element;
-    size++;
     return "";
+  }
+  private void resize(){
+    String[] old = data;
+    data = new String[old.length * 2];
+    for(int i = 0; i < old.length; i++){
+      data[i] = old[i];
+    }
   }
 }
