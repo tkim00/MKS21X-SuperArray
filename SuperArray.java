@@ -121,4 +121,18 @@ public class SuperArray{
      }
      return element;
    }
+   public boolean remove(String target){
+     if (indexOf(target) == -1){
+       return false;
+     }
+     for(int i = indexOf(target); i < size; i++){
+       data[i] = data[i+1];
+     }
+     String[] old = data;
+     data = new String[old.length];
+     for(int i = 0; i < size-1; i++){
+       data[i] = old[i];
+     }
+     return true;
+   }
 }

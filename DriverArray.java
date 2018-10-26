@@ -28,7 +28,9 @@ public class DriverArray{
     d1.add(5, "NEW");
     System.out.println(d1);
     System.out.println("size: " + d1.size());
-    d1.remove(8);
+    System.out.println(d1.remove(8));
+    System.out.println(d1);
+    d1.remove("insertion");
     System.out.println(d1);
 
     d1.clear();
