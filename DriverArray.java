@@ -25,7 +25,9 @@ public class DriverArray{
     System.out.println(d1.size());
     d1.contains("21");
     System.out.println(d1.lastIndexOf("insertion"));
-    
+    d1.add(5, "NEW");
+    System.out.println(d1);
+
     d1.clear();
     System.out.println(d1.size());
   }

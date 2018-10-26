@@ -90,4 +90,18 @@ public class SuperArray{
      }
      return -1;
    }
+   public String add(int index, String element){
+     if(index < 0 || index >= size()){
+       System.out.println("error");
+       return null;
+     }
+     if(size == data.length){
+       resize();
+     }
+     for(int i = size-1; i >= index; i--){
+       data[i+1] = data[i];
+     }
+     data[index] = element;
+     return "";
+   }
 }
