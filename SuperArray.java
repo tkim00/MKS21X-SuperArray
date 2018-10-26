@@ -53,11 +53,24 @@ public class SuperArray{
     data[index] = element;
     return "";
   }
+
+
   private void resize(){
     String[] old = data;
     data = new String[old.length * 2];
     for(int i = 0; i < old.length; i++){
       data[i] = old[i];
     }
+    System.out.println("new length: " + data.length);
   }
+
+  //phase3
+   public boolean contains(String target){
+     for(int i = 0; i < size; i++){
+       if(data[size].equals(target)){
+         return true;
+       }
+     }
+     return false;
+   }
 }
