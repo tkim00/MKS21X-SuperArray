@@ -22,7 +22,10 @@ public class DriverArray{
     System.out.println(d1.get(15));
     d1.set(10, "insertion");
     System.out.println(d1);
-
+    System.out.println(d1.size());
+    d1.contains("21");
+    System.out.println(d1.lastIndexOf("insertion"));
+    
     d1.clear();
     System.out.println(d1.size());
   }
