@@ -5,6 +5,9 @@ public class SuperArray{
   public SuperArray(){
     data = new String[10];
   }
+  public SuperArray(int startingCapacity){
+    data = new String[startingCapacity];
+  }
 
   public int size(){
     return size;
@@ -14,6 +17,9 @@ public class SuperArray{
   }
   public boolean isEmpty(){
     return size == 0;
+  }
+  public int length(){
+    return data.length;
   }
 
   public boolean add(String element){
@@ -40,14 +46,14 @@ public class SuperArray{
   }
   public String get(int index){
     if(index < 0 || index >= size()){
-      System.out.println("error");
+      System.out.println("**error**");
       return null;
     }
     return data[index];
   }
   public String set(int index, String element){
     if(index < 0 || index >= size()){
-      System.out.println("error");
+      System.out.println("**error**");
       return null;
     }
     data[index] = element;
@@ -58,6 +64,9 @@ public class SuperArray{
   private void resize(){
     String[] old = data;
     data = new String[old.length * 2];
+    if(old.length == 0){
+      data = new String[1];
+    }
     for(int i = 0; i < old.length; i++){
       data[i] = old[i];
     }
@@ -92,7 +101,7 @@ public class SuperArray{
    }
    public String add(int index, String element){
      if(index < 0 || index >= size()){
-       System.out.println("error");
+       System.out.println("**error**");
        return null;
      }
      if(size == data.length){
@@ -107,7 +116,7 @@ public class SuperArray{
    }
    public String remove(int index){
      if(index < 0 || index >= size()){
-       System.out.println("error");
+       System.out.println("**error**");
        return null;
      }
      String element = data[index];

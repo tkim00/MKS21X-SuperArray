@@ -6,7 +6,7 @@ public class DriverArray{
     d1.clear();
     System.out.println("size: " + d1.size());
 
-    for(int i = 0; i < 10; i++){
+    for(int i = 0; i < d1.length(); i++){
       d1.add("" + i+1);
     }
     System.out.println(d1);
@@ -17,9 +17,9 @@ public class DriverArray{
     }
     System.out.println(d1);
 
-    System.out.println(d1.get(4));
-    System.out.println(d1.get(10));
-    System.out.println(d1.get(15));
+    System.out.println("index 4: " + d1.get(4));
+    System.out.println("index 10: " + d1.get(10));
+    System.out.println("index 15: " + d1.get(15));
     d1.set(10, "insertion");
     System.out.println(d1);
     System.out.println("size: " + d1.size());
@@ -28,7 +28,7 @@ public class DriverArray{
     d1.add(5, "NEW");
     System.out.println(d1);
     System.out.println("size: " + d1.size());
-    System.out.println(d1.remove(8));
+    System.out.println("index 8: " + d1.remove(8));
     System.out.println(d1);
     d1.remove("insertion");
     System.out.println(d1);
