@@ -17,9 +17,14 @@ public class DriverArray{
     }
     System.out.println(d1);
 
-    System.out.println("index 4: " + d1.get(4));
-    System.out.println("index 10: " + d1.get(10));
-    System.out.println("index 15: " + d1.get(15));
+    try{
+      System.out.println("index 4: " + d1.get(4));
+      System.out.println("index 10: " + d1.get(10));
+      System.out.println("index 15: " + d1.get(15));
+    } catch(IndexOutOfBoundsException e){
+      System.out.println("caught a problem in get(int)");
+    }
+
     d1.set(10, "insertion");
     System.out.println(d1);
     System.out.println("size: " + d1.size());
@@ -37,13 +42,19 @@ public class DriverArray{
     System.out.println("size: " + d1.size());
 
     System.out.println("******************************************************");
-
+    //Exception handling
     System.out.println("TESTING PHASE 1 and 2... except clear() which will be at the end");
 
     System.out.println();
     System.out.println();
     System.out.println("Testing SuperArray(int) ... SA should be [] even when debugged");
     SuperArray SA = new SuperArray(0);
+    System.out.println("Testing SuperArray(int)\'s throw ... Expected : 1 error messages");
+    try{
+      SuperArray SAv2 = new SuperArray(-1);
+    } catch(IllegalArgumentException e) {
+      System.out.println("Caught an Exception in SuperArray(int)");
+    }
 
     System.out.println("Testing toString() and toStringDebug ... Expected: []");
     System.out.println("Current Status of SA: " + SA.toStringDebug());
@@ -115,7 +126,7 @@ public class DriverArray{
 
     System.out.println("Testing add(int.String) ... Expected : SA should be [C, D, B, E]");
     SA.add(1,"D");
-    SA.add(3, "E");
+    SA.add("E");
     System.out.println("SA\'s Current Status: " + SA);
     System.out.println("Testing add(int,String)\'s throw ... Expected : 2 error messages");
     try{

@@ -6,6 +6,9 @@ public class SuperArray{
     data = new String[10];
   }
   public SuperArray(int startingCapacity){
+    if(startingCapacity < 0){
+      throw new IllegalArgumentException("startingCapacity cannot be " + startingCapacity);
+    }
     data = new String[startingCapacity];
   }
 
@@ -35,26 +38,24 @@ public class SuperArray{
     for(int i = 0; i < size(); i++){
       list += data[i] + ",";
     }
-    return list + "]";
+    return list.substring(0, list.length()-1) + "]";
   }
   public String toStringDebug(){
     String list = "[";
     for(int i = 0; i < data.length ; i++){
       list += data[i] + ",";
     }
-    return list + "]";
+    return list.substring(0, list.length()-1) + "]";
   }
   public String get(int index){
     if(index < 0 || index >= size()){
-      System.out.println("**error**");
-      return null;
+      throw new IndexOutOfBoundsException("index cannot be " + index);
     }
     return data[index];
   }
   public String set(int index, String element){
     if(index < 0 || index >= size()){
-      System.out.println("**error**");
-      return null;
+      throw new IndexOutOfBoundsException("index cannot be " + index);
     }
     data[index] = element;
     return "";
@@ -98,14 +99,13 @@ public class SuperArray{
    }
    public String add(int index, String element){
      if(index < 0 || index >= size()){
-       System.out.println("**error**");
-       return null;
+       throw new IndexOutOfBoundsException("index cannot be " + index);
      }
+     size++;
      if(size == data.length){
        resize();
      }
-     size++;
-     for(int i = size-1; i >= index; i--){
+     for(int i = size-2; i >= index; i--){
        data[i+1] = data[i];
      }
      data[index] = element;
@@ -113,11 +113,10 @@ public class SuperArray{
    }
    public String remove(int index){
      if(index < 0 || index >= size()){
-       System.out.println("**error**");
-       return null;
+       throw new IndexOutOfBoundsException("index cannot be " + index);
      }
      String element = data[index];
-     for(int i = index; i < size; i++){
+     for(int i = index; i < size-1; i++){
        data[i] = data[i+1];
      }
      String[] old = data;
@@ -125,13 +124,14 @@ public class SuperArray{
      for(int i = 0; i < size-1; i++){
        data[i] = old[i];
      }
+     size--;
      return element;
    }
    public boolean remove(String target){
      if (indexOf(target) == -1){
        return false;
      }
-     for(int i = indexOf(target); i < size; i++){
+     for(int i = indexOf(target); i < size-1; i++){
        data[i] = data[i+1];
      }
      String[] old = data;
@@ -139,6 +139,7 @@ public class SuperArray{
      for(int i = 0; i < size-1; i++){
        data[i] = old[i];
      }
+     size--;
      return true;
    }
 }
