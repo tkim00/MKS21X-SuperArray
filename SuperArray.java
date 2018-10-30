@@ -63,10 +63,7 @@ public class SuperArray{
 
   private void resize(){
     String[] old = data;
-    data = new String[old.length * 2];
-    if(old.length == 0){
-      data = new String[1];
-    }
+    data = new String[old.length * 2 + 1];
     for(int i = 0; i < old.length; i++){
       data[i] = old[i];
     }
