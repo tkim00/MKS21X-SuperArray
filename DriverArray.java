@@ -126,6 +126,7 @@ public class DriverArray{
 
     System.out.println("Testing add(int.String) ... Expected : SA should be [C, D, B, E]");
     SA.add(1,"D");
+    System.out.println("size: " + SA.size());
     SA.add("E");
     System.out.println("SA\'s Current Status: " + SA);
     System.out.println("Testing add(int,String)\'s throw ... Expected : 2 error messages");
@@ -144,6 +145,7 @@ public class DriverArray{
 
     System.out.println("Testing resize() ... Expected: SA when debugged should be [C, D, B, E, null, null, null]");
     System.out.println(SA.toStringDebug());
+    System.out.println("size: " + SA.size());
 
     System.out.println();
 

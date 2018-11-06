@@ -57,8 +57,9 @@ public class SuperArray{
     if(index < 0 || index >= size()){
       throw new IndexOutOfBoundsException("index cannot be " + index);
     }
+    String x = data[index];
     data[index] = element;
-    return "";
+    return x;
   }
 
 
@@ -68,7 +69,7 @@ public class SuperArray{
     for(int i = 0; i < old.length; i++){
       data[i] = old[i];
     }
-    System.out.println("new length: " + data.length);
+    //System.out.println("new length: " + data.length);
   }
 
   //phase3
@@ -97,8 +98,8 @@ public class SuperArray{
      }
      return -1;
    }
-   public String add(int index, String element){
-     if(index < 0 || index >= size()){
+   public void add(int index, String element){
+     if(index < 0 || index > size()){
        throw new IndexOutOfBoundsException("index cannot be " + index);
      }
      size++;
@@ -109,7 +110,6 @@ public class SuperArray{
        data[i+1] = data[i];
      }
      data[index] = element;
-     return "";
    }
    public String remove(int index){
      if(index < 0 || index >= size()){
